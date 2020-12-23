@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: myapp-service
+spec:
+  type: NodePort
+  ports:
+    - targetPort: 80
+      # If not specified, in range 30000-32767
+      port: 80
+      # Range: 30000-32767
+      nodePort: 30008
+  selector:
+    app: myapp
+    type: front-end
